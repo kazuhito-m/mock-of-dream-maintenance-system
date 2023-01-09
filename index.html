@@ -9,18 +9,26 @@
 <body>
   <h1>デプロイ・メンテナンス</h1>
   <p>どのレベルのデプロイ/メンテナンスですか？</p>
-  <p> <label for="cheese">メンテナンスレベル</label>
+  <p> <label for="maintenance-level">メンテナンスレベル:</label>
   <div>
-    <select name="maintenance-level" required="required" size="3">
-      <option value="1">レベル1 - アプリケーション デプロイ</option>
+    <select id="maintenance-level" required="required" size="3">
+      <option value="1" selected>レベル1 - アプリケーション デプロイ</option>
       <option value="2">レベル2 - インフラ環境 構成変更</option>
       <option value="3">レベル3 - インフラ環境 立て直し・新規構築</option>
     </select>
   </div>
   </p>
-  <button name="OK" value="1">OK</button><br>
+  <button id="ok" value="1">OK</button><br>
   <p><br>
   </p>
+  <script>
+    function okClick() {
+      const value = document.getElementById('maintenance-level').value;
+      const pageName = 'level_0' + value + '.html';
+      document.location = pageName;
+    }
+    document.getElementById('ok').onclick = okClick;
+  </script>
 </body>
 
 </html>
