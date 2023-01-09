@@ -11,6 +11,85 @@
   <h2>インフラ構成 環境変更</h2>
   <a href="index.html">>最初から</a>
 
+  <p>どこをどんなインフラ環境状態にしますか？</p>
+
+  <div>
+    <label for="environment-type">環境:</label>
+    <select id="environment-type" required="required">
+      <option value="0" selected>develop</option>
+      <option value="2">用途環境-フィーチャ1325対応</option>
+      <option value="3">用途環境-ステークホルダー確認用</option>
+      <option value="4">みうらのお試し</option>
+      <option value="1">staging</option>
+      <option value="99">production</option>
+    </select>
+  </div>
+  <p />
+  <div>
+    <label for="baseline-version">適用IaC:</label>
+    <select id="baseline-version" required="required">
+      <option value="0" selected>本体-iac-cf-1.0.0.25(現在のdevelop)</option>
+      <option value="1">本体-iac-cf-1.0.0.23</option>
+      <option value="1">本体-iac-cf-1.0.0.22</option>
+      <option value="1">本体-iac-cf-1.0.0.21(現在のstaging)</option>
+      <option value="1">本体-iac-cf-1.0.0.20</option>
+      <option value="1">本体-iac-cf-1.0.0.19</option>
+      <option value="1">本体-iac-cf-1.0.0.18</option>
+      <option value="1">本体-iac-cf-1.0.0.12</option>
+      <option value="1">本体-iac-cf-1.0.0.2</option>
+    </select>
+  </div>
+  <p>
+  <div>
+    <div>
+      <input type="checkbox" id="with-app-deploy">
+      <label for="with-app-deploy">同時にアプリケーションもデプロイ</label>
+    </div>
+    <div id="infra-only-area">
+      <div>
+        <input type="checkbox" id="stop-app">
+        <label for="stop-app">「しばらくお待ち下さい」画面対応</label>
+      </div>
+      <div>
+        <input type="checkbox" id="scheduled">
+        <label for="scheduled">スケジューリングメンテナンス</label>
+        <div id="maintenance-schedule-area">
+          <label for="maintenance-schedule">メンテナンス開始時刻</label>
+          <input type="text" id="maintenance-schedule" required size="18" value="2023-01-11 02:00:00">
+        </div>
+      </div>
+    </div>
+  </div>
+  <p />
+  <button id="ok" value="1">OK</button><br>
+  <script>
+    const environmets = document.querySelector('#environment-type');
+    environmets.onchange = event => {
+      if (environmets.value == 99) alert('ビジネスに多大な影響が在る可能性があります。\n本当によろしいですか？');
+    }
+
+    const withAppDeploy = document.getElementById('with-app-deploy');
+    function onClickWithAppDeploy() {
+      const infraOnlyArea = document.getElementById('infra-only-area');
+      infraOnlyArea.style.display = withAppDeploy.checked ? 'none' : 'block';
+    }
+    withAppDeploy.onclick = onClickWithAppDeploy;
+    onClickWithAppDeploy();
+
+    function okClick() {
+      document.location = withAppDeploy.checked ? 'level_01.html' : 'finish.html';
+    }
+    document.getElementById('ok').onclick = okClick;
+
+    const scheduled = document.getElementById('scheduled');
+    function onClickScheduled() {
+      const area = document.getElementById('maintenance-schedule-area');
+      area.style.display = scheduled.checked ? 'block' : 'none';
+    }
+    scheduled.onclick = onClickScheduled;
+    onClickScheduled();
+  </script>
+
 </body>
 
 </html>
