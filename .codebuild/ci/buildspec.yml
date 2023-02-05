@@ -10,6 +10,8 @@ phases:
     commands:
       - echo これが表示されるだけ、のはずなんですがねぇ。しらんけど。
       - find .
+      - cat ./diff_target/change.txt
+      - cat ./diff_target_old/change.txt
       - diff ./diff_target/change.txt ./diff_target_old/change.txt || echo "change.txtに変化が在った。"
 cache:
   paths:
