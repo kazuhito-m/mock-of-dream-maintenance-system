@@ -1,5 +1,13 @@
 version: 0.2
 phases:
+  install: 
+    commands:
+      - echo installでの状態表示
+      - ls -al .
+  pre_build: 
+    commands:
+      - echo pre_buildでの状態表示
+      - ls -al .
   build:
     commands:
       - echo これが表示されるだけ、のはずなんですがねぇ。しらんけど。
