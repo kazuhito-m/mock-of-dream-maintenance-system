@@ -17,3 +17,5 @@
   - https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/build-caching.html
 - 有志の研究
   - https://qiita.com/tokino/items/2601e4b52ab167c52ba0
+- docker buildの際のローカルキャッシュ活用
+  - https://dev.classmethod.jp/articles/codebuild-local-cache/
