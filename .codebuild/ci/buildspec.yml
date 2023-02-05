@@ -2,4 +2,4 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo これが表示されるだけ、のはずなんですがねぇ。
+      - echo これが表示されるだけ、のはずなんですがねぇ。しらんけど。
