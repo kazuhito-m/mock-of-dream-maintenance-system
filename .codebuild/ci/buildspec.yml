@@ -1,17 +1,12 @@
 version: 0.2
 phases:
-  pre_build: 
-    commands:
-      - echo 最初の時点で diff_target_old がどうなってるか
-      - cat ./diff_target_old/change.txt || echo 'change.txtファイルは表示できなかった。'
   build:
     commands:
-      - echo これが表示されるだけ、のはずなんですがねぇ。しらんけど。
-      - find .
-      - mkdir -p ./diff_target_old
-      - date > ./diff_target_old/change.txt
-      - echo 変更後chnage.txt
-      - cat ./diff_target_old/change.txt
+      - diff ./change.txt ./last/change.txt || echo '変化あり'
+  post_build:
+    commands:
+      - mkdir -p ./last
+      - cp change.txt ./last/change.txt
 cache:
   paths:
-    - diff_target_old
+    - last/**/*
