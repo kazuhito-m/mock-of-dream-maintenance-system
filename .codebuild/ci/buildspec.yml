@@ -3,7 +3,7 @@ phases:
   pre_build: 
     commands:
       - echo 最初の時点で diff_target_old がどうなってるか
-      - cat ./diff_target_old/change.txt
+      - cat ./diff_target_old/change.txt || echo 'change.txtファイルは表示できなかった。'
   build:
     commands:
       - echo これが表示されるだけ、のはずなんですがねぇ。しらんけど。
