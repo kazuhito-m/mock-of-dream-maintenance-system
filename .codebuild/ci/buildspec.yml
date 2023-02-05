@@ -4,11 +4,11 @@ phases:
     commands:
       - mv diff_target diff_target_old
       - git reset --hard HEAD
-      - ls -al .
   build:
     commands:
       - echo これが表示されるだけ、のはずなんですがねぇ。しらんけど。
-      - ls -al .
+      - find .
+      - diff ./diff_target/change.txt ./diff_target_old/change.txt || echo "change.txtに変化が在った。"
 cache:
   paths:
     - diff_target/*
