@@ -8,8 +8,10 @@ phases:
     commands:
       - echo これが表示されるだけ、のはずなんですがねぇ。しらんけど。
       - find .
-      - cat ./diff_target_old/change.txt
+      - mkdir -p ./diff_target_old
       - date > ./diff_target_old/change.txt
+      - echo 変更後chnage.txt
+      - cat ./diff_target_old/change.txt
 cache:
   paths:
     - diff_target_old
