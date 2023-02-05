@@ -12,4 +12,4 @@ phases:
       - date > ./diff_target_old/change.txt
 cache:
   paths:
-    - diff_target_old/change.txt
+    - diff_target_old
