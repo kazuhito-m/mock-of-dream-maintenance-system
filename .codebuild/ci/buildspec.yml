@@ -2,6 +2,8 @@ version: 0.2
 phases:
   pre_build: 
     commands:
+      - echo 最初の時点で diff_target がどうなってるか
+      - find ./diff_target
       - mv diff_target diff_target_old
       - git reset --hard HEAD
   build:
@@ -11,4 +13,4 @@ phases:
       - diff ./diff_target/change.txt ./diff_target_old/change.txt || echo "change.txtに変化が在った。"
 cache:
   paths:
-    - diff_target/*
+    - diff_target/**/*
