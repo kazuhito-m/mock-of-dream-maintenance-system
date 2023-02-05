@@ -1,12 +1,9 @@
 version: 0.2
 phases:
-  install: 
-    commands:
-      - echo installでの状態表示
-      - ls -al .
   pre_build: 
     commands:
-      - echo pre_buildでの状態表示
+      - mv diff_target diff_target_old
+      - git reset --hard HEAD
       - ls -al .
   build:
     commands:
