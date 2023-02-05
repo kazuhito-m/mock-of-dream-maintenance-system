@@ -13,4 +13,4 @@ phases:
       - diff ./diff_target/change.txt ./diff_target_old/change.txt || echo "change.txtに変化が在った。"
 cache:
   paths:
-    - diff_target
+    - diff_target/change.txt
