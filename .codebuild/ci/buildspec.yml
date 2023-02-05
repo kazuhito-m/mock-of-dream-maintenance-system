@@ -1,0 +1,10 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - diff ./change.txt /tmp/lastbuild/change.txt || echo '変化あり'
+      - mkdir -p /tmp/lastbuild
+      - cp change.txt /tmp/lastbuild/change.txt
+cache:
+  paths:
+    - '/tmp/lastbuild/**/*'
