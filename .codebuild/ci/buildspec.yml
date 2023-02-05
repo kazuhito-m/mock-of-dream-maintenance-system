@@ -9,4 +9,4 @@ phases:
       - cp change.txt /tmp/lastbuild/change.txt
 cache:
   paths:
-    - /tmp/lastbuild/**/*
+    - '/tmp/lastbuild/**/*'
